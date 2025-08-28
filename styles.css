@@ -1,0 +1,322 @@
+/* Reset and Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+    --primary-color: #1e1e2f;
+    --secondary-color: #f5f5f5;
+    --accent-color: #ff6f61;
+    --font-family: 'Poppins', Arial, sans-serif;
+    --text-color: #333;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --primary-color: #121212;
+    --secondary-color: #1e1e2f;
+    --text-color: #f5f5f5;
+}
+
+/* General Styling */
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+}
+
+header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    position: sticky;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0 40px;
+    font-size: 36px;
+    color: var(--accent-color);
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+header ul li {
+    padding: 0 10px;
+}
+
+.nav-link {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+main {
+    padding: 10px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+main h1 {
+    font-size: 38px;
+    font-weight: bolder;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+main pre {
+    font-size: 24px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+#home-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+}
+
+#home-content img {
+    max-width: 400px;
+    height: auto;
+}
+
+/* Skills Section */
+#skill {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+#skill li {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    height: 250px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+#skill li img {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+#skill li:hover {
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Section Styling */
+#about, #projects, #contact {
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+#project-list, #abt {
+    background-color: var(--text-color);
+    padding: 15px 10px;
+    margin: 10px 30px;
+    border-radius: var(--border-radius);
+}
+
+footer {
+    padding: 15px;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: var(--shadow);
+    height: 110px;
+}
+
+footer a {
+    margin: 0 30px;
+    font-size: 32px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+footer a:hover {
+    color: white;
+    transform: scale(2.5);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #home-content {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+    #skill {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #skill li {
+        width: 100%;
+        max-width: 300px;
+    }
+    #about, #projects, #contact {
+        padding: 15px;
+    }
+    #project-list {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+    header h1 {
+        font-size: 28px;
+        padding: 10px 0;
+    }
+    header ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .nav-link {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+    main h1 {
+        font-size: 32px;
+    }
+    #skill li {
+        height: auto;
+        padding: 10px;
+    }
+    footer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    main h1 {
+        font-size: 28px;
+    }
+    footer a {
+        font-size: 24px;
+    }
+    #skill li {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 20px;
+    }
+    .nav-link {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+    main h1 {
+        font-size: 24px;
+    }
+    footer a {
+        font-size: 20px;
+    }
+    #skill li {
+        max-width: 200px;
+    }
+}
